@@ -7,7 +7,7 @@ def Data(day, month, year):
     year / 400 - 32045
     return JD
 
-def Proverka(value, Min, Max):
+def Check(value, Min, Max):
     D = value.get()
     D = int(D)
     if D >= Min and D <= Max:
@@ -16,14 +16,14 @@ def Proverka(value, Min, Max):
 def calculate():
     global Resultlable
     try:
-        A = Proverka(year, -9999, 9999)
-        B = Proverka(month, 1, 12)
+        A = Check(year, -9999, 9999)
+        B = Check(month, 1, 12)
         if A % 4 == 0:
             E = 1
         else:
             E = 0
         Days=[31, 28+E, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
-        C = Proverka(day, 1, Days[B-1])
+        C = Check(day, 1, Days[B-1])
 
         now = datetime.date(datetime.now())
         now = Data(now.day, now.month, now.year)
